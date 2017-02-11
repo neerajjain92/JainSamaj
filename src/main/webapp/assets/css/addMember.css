@@ -1,0 +1,32 @@
+#userForm {
+    background: #ffffff;
+    border: 1px solid blue;
+    margin: 50px;
+    margin-top: 20px;
+    box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+}
+
+fieldset {
+    border: 5px solid #1F497D;
+    background: #ddd;
+    border-radius: 5px;
+    padding: 50px;
+}
+
+fieldset legend {
+    background: #1F497D;
+    color: #fff;
+    padding: 5px 10px ;
+    font-size: 32px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 5px #ddd;
+    margin-left: 20px;
+}
+
+.label{
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.md-select {
+    min-width: 0px !important;
+}

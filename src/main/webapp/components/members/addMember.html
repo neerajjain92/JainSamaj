@@ -1,0 +1,196 @@
+<div style="margin-top: 30px;" layout="column" ng-cloak="" class="md-inline-form inputdemoBasicUsage">
+
+    <md-content layout-padding="">
+        <div>
+            <form  name="userForm" autocomplete="off" ng-submit="addMemberDetails()">
+                <fieldset id="userForm">
+                    <legend>Add Member Details</legend>
+                    <div layout-gt-xs="row">
+                        <md-input-container style="max-width: 400px" class="md-block" flex-gt-xs="">
+                            <label>First Name</label>
+                            <input name="firstName" ng-model="member.firstName" required md-maxlength="10" minlength="3">
+                            <div ng-messages="userForm.firstName.$error">
+                                <div ng-message="required">This is required!</div>
+                                <div ng-message="md-maxlength">That's too long!</div>
+                                <div ng-message="minlength">That's too short!</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container style="max-width: 400px" class="md-block" flex-gt-xs="">
+                            <label>Middle Name</label>
+                            <input name="middleName" ng-model="member.middleName" md-maxlength="10">
+                            <div ng-messages="userForm.middleName.$error">
+                                <div ng-message="md-maxlength">That's too long!</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container style="max-width: 400px" class="md-block" flex-gt-xs="">
+                            <label>Last Name</label>
+                            <input name="lastName" ng-model="member.lastName" required md-maxlength="10" minlength="3">
+                            <div ng-messages="userForm.lastName.$error">
+                                <div ng-message="required">This is required!</div>
+                                <div ng-message="md-maxlength">That's too long!</div>
+                                <div ng-message="minlength">That's too short!</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-xs="">
+                            <label>Relation with Applicant</label>
+                            <md-select ng-model="member.relationWithApplicant" required>
+                                <md-option ng-repeat="relation in relationMst track by $index" value="{{relation}}">
+                                    {{relation}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-xs="row">
+                        <md-input-container class="md-block" flex-gt-xs="">
+                            <label>Date of Birth</label>
+                            <md-datepicker ng-model="member.dob" md-placeholder="DOB" md-open-on-focus=""
+                                           required></md-datepicker>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs="">
+                            <label>Marriage Aniversary</label>
+                            <md-datepicker ng-model="member.anniversaryDate" md-placeholder="Anniversary's Date"
+                                           md-open-on-focus=""></md-datepicker>
+                        </md-input-container>
+                        <md-input-container style="max-width: 200px; margin-right: 50px" class="md-block" flex-gt-xs="">
+                            <label>Gender</label>
+                            <md-select ng-model="member.gender" required>
+                                <md-option value="male">Male</md-option>
+                                <md-option value="female">Female</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs="">
+                            <label>Martial Status</label>
+                            <md-select ng-model="member.maritalStatus" required>
+                                <md-option value="married">Married</md-option>
+                                <md-option value="unmarried">UnMarried</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-xs="row">
+                        <md-input-container class="md-block" flex-gt-xs="">
+                            <label>Residential Address</label>
+                            <input ng-model="member.residentialAddress" required>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-xs="">
+                            <label>Office Address</label>
+                            <input ng-model="member.officeAddress">
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-xs="row">
+
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>State</label>
+                            <md-select ng-model="member.state">
+                                <md-option ng-repeat="state in states" value="{{state.name}}">
+                                    {{state.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>City</label>
+                            <input ng-model="member.city">
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Pin Code</label>
+                            <input name="pinCode" ng-model="member.pinCode" placeholder="301001" required=""
+                                   ng-pattern="/^[0-9]{6,6}$/" md-maxlength="6" minlength="6">
+
+                            <div ng-messages="userForm.pinCode.$error" role="alert" multiple="">
+                                <div ng-message="required" class="my-message">You must supply a pin code.</div>
+                                <div ng-message="pattern" class="my-message">That doesn't look like a valid pin-code.
+                                </div>
+                                <div ng-message="md-maxlength" class="my-message">
+                                    Don't use the long version silly...we don't need to be that specific...
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-xs="row">
+
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Mobile Number</label>
+                            <input ng-model="member.mobileNumber" required name="mobile" md-maxlength="10" minlength="10" ng-pattern="/^[789]\d{9}$/">
+                            <div ng-messages="userForm.mobile.$error" role="alert" multiple="">
+                                <div ng-message="required">This is required!</div>
+                                <div ng-message="pattern" class="my-message">That doesn't look like a valid Indian Mobile Number.</div>
+                                <div ng-message="minlength" class="my-message">Mobile Number should be min of 10 digits</div>
+                                <div ng-message="maxlength" class="my-message">Mobile Number should be max of  10 digits.</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Landline Number</label>
+                            <input ng-model="member.landLineNumber">
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Occupation Profile</label>
+                            <input ng-model="member.occupationProfile" required name="occupation" minlength="4">
+                            <div ng-messages="userForm.occupation.$error" role="alert" multiple="">
+                                <div ng-message="required">This is required!</div>
+                                <div ng-message="minlength" class="my-message">That's too short.</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Native Place</label>
+                            <input ng-model="member.nativePlace" required name="nativePlace" minlength="3">
+                            <div ng-messages="userForm.nativePlace.$error" role="alert" multiple="">
+                                <div ng-message="required">This is required!</div>
+                                <div ng-message="minlength" class="my-message">That's too short.</div>
+                            </div>
+                        </md-input-container>
+
+                    </div>
+
+                    <md-input-container class="md-block">
+                        <label>ANY SUGGESTION / SUPPORT FOR ASSOCIATION</label>
+                        <textarea ng-model="member.feedback" md-maxlength="150" rows="3" md-select-on-focus=""></textarea>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>ASSOCIATION WITH SOME OTHER ORGANISATION , IF ANY</label>
+                        <textarea ng-model="member.associationWithOtherOrganisation" md-maxlength="150" rows="3"
+                                  md-select-on-focus=""></textarea>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>ANY SPECIAL INTEREST</label>
+                        <textarea ng-model="member.specialInterest" md-maxlength="150" rows="3"
+                                  md-select-on-focus=""></textarea>
+                    </md-input-container>
+
+                    <div layout-gt-xs="row">
+
+                        <md-input-container class="md-block" flex-gt-sm="" required>
+                            <label>Email Id</label>
+                            <input ng-model="member.emailId" name="email" required>
+                            <div ng-messages="userForm.email.$error" role="alert" multiple="">
+                                <div ng-message="required">This is required!</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>Allotted Member Id</label>
+                            <input ng-model="member.allottedMemberId">
+                        </md-input-container>
+                    </div>
+                    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
+                        <md-button type="submit" class="md-raised md-primary" ng-disabled="!userForm.$valid">Submit Details</md-button>
+                    </section>
+                </fieldset>
+            </form>
+        </div>
+    </md-content>
+
+</div>

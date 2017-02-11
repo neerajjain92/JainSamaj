@@ -1,0 +1,294 @@
+<div class="home-section">
+
+    <section class="success" name="facts">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="intro-text">
+                        <span class="brand">||Jainam Jayati Shasanam||</span>
+                        <hr class="star-light">
+                        <div class="row stats">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="" target="_blank">
+                                    <div class="card dark summary-inline">
+                                        <div class="card-body">
+                                            <i class="icon fa fa-github fa-3x"></i>
+                                            <div class="content">
+                                                <div class="title ng-binding">{{totalThirthankars}}</div>
+                                                <div class="sub-title">Tirthankars</div>
+                                            </div>
+                                            <div class="clear-both"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="" target="_blank">
+                                    <div class="card dark summary-inline">
+                                        <div class="card-body">
+                                            <i class="icon fa fa-users fa-3x"></i>
+                                            <div class="content">
+                                                <div class="title ng-binding">4,451,753</div>
+                                                <div class="sub-title">Jain Community</div>
+                                            </div>
+                                            <div class="clear-both"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="" target="_blank">
+                                    <div class="card dark summary-inline">
+                                        <div class="card-body">
+                                            <i class="icon fa fa-user fa-3x"></i>
+                                            <div class="content">
+                                                <div class="title ng-binding">{{totalMembers}}</div>
+                                                <div class="sub-title">People Joined our online Society</div>
+                                            </div>
+                                            <div class="clear-both"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        Jainism, traditionally known as Jain Dharma is an ancient Indian religion belonging to the śramaṇa tradition. The central tenet is non-violence and respect towards all living beings. The three main principles of Jainism are ahimsa (non-violence), anekantavada (non-absolutism) and aparigraha (non-possessiveness)
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        Followers of Jainism take five main vows: ahimsa (non-violence), satya (not lying), asteya (not stealing), brahmacharya (chastity) and aparigraha (non-attachment).
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        The word "Jain" derives from the Sanskrit word jina (conqueror). A human being who has conquered all inner passions like attachment, desire, anger, pride, greed, etc. is called Jina. Followers of the path practiced and preached by the jinas are known as Jains. Parasparopagraho Jivanam ("the function of souls is to help one another") is the motto of Jainism.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section" id="section-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <span class="brand">//Ahimsa Paramo Dharma.//</span>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <!--<slick init-onload="true" accessibility="true" pause-on-hover="false" autoplay="true" autoplay-speed="2000" data="dataLoaded" slides-to-show="1" dots="true">-->
+                        <!--<div ng-repeat="item in items">-->
+                            <!--<span>-->
+                                <!--<img src="assets/img/{{ item.imgSrc }}" alt="{{ item.label}}" />-->
+                            <!--</span>-->
+                        <!--</div>-->
+                    <!--</slick>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success" name="section-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="heading">Committee Members</h2>
+                    <hr class="star-light">
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <input type="text" ng-model="searchText" class="form-control search-text ng-dirty ng-valid-parse ng-invalid ng-invalid-required ng-touched" placeholder="Search" id="name" required="" data-validation-required-message="Please enter a module to search">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-cloak ng-repeat="member in commmitteeMembers | filter: searchText">
+                    <div class="clearfix" ng-if="$index % 4 == 0"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <a ng-href="https://jhipster.github.io/modules/marketplace/#/details/{(module.package.name)}"
+                           title="{(module.package.description)}">
+                            <div class="card dark module summary-inline">
+                                <div class="card-body">
+                                    <i class="icon fa fa-cube fa-3x"></i>
+                                    <div class="content">
+                                        <div class="title fontSmall">{{member.name}}</div>
+                                        <div class="sub-title"><span class="fa fa-user"></span> &nbsp; {{member.designation}} &nbsp; | &nbsp; <span class="fa fa-mobile"></span> &nbsp; {{member.mobile}}</div>
+                                    </div>
+                                    <div class="clear-both"></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section" name="section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="heading">Latest News</h2>
+                    <hr class="star-primary">
+                </div>
+                <div id=""><!-- flex container -->
+
+                    <div class="box" ><!-- flex item -->
+                        <img src="assets/img/PmModi.jpg" alt="" />
+                        <p><h3> 1) PM MODI VISITS ACHARYA VIDYASAGAR AT BHOPAL </h3></p>
+                    </div>
+
+                    <div class="news_detail">
+                        <p>
+                            14th October 2016, Bhopal : Everyone in political circles is asking the same question - why is Prime Minister Narendra Modi meeting Acharya Vidyasagar. During his whirlwind three-hour visit to Bhopal, the prime minister has especially taken out the time to head to a Jain temple in Habibganj to meet the Jain monk for 10 minutes. Given the population of the Jain community in Madhya Pradesh0.8% of the total number of people, according to the 2011 census, the meeting hardly assumes any political significance, not even in view of the 2017 Uttar Pradesh assembly elections. However, sources said Modi's meeting with the Acharya should be seen in context of BJP national president Amit Shah's June meeting with the monk in Kundalpur.
+                        </p>
+                        <p>
+                            Acharya Vidyasagar is the most renowned saint in the Digambar Jain community and wields influence beyond the community too. His present campaign focuses on how to promote Hindi and make available justice to people in Hindi, encourage cottage industries, how to get the government to reduce meat exports and how to check brain drain inter alia. Sources said the Acharya has had a meeting with RSS chief Mohan Bhagwat too in this regard. The RSS agenda gets amply reflected in Acharya's agenda as well. This is the reason Amit Shah and Modi have great regard for the Acharya. The Acharya wants that the language of justice delivery system in any state be the official language of that particular state. Hence, in the Hindi-speaking belt, the language of justice primary should be Hindi, not English. Amid reports that meat export has gone up during the current regime at the Centre, the Acharya wants the government to reduce such exports. In his view, cottage industries will give a boost to the economic prosperity of society.
+                        </p>
+                        <p>
+                            Perhaps it's his campaign that he chose to stay in the heart of Bhopal during Chaturmas. So far, he always avoided camping in the city limits and chose a place either at the outskirts of towns or further away during Chaturmas. However, staying in the city will help him create more awareness among people on the abovementioned subjects. State BJP leader Shailendra Sharma sees nothing between the lines during the meet. He said Modi is making a courtesy call, given the Acharya's prominence in Bhopal. However, Digambar Jain MahasamitiPresident Ravindra Jain said the meeting definitely assumes significance and that in the present circumstance, it appears more than just a courtesy visit.
+                        </p>
+                        <p>
+                            Sources in the Jain temple saidPM also followed the ritual of 'Pad Pralakshan', as per which he washed the Acharya's feet and sought his blessings. Before PM, Chief Minister Shivraj Singh Chouhan also performed the ritual. The sources said the monk toldPM to play a proactive role in promoting Indian handloom and the language Hindi across the world. Among other things, the Jain sect leader suggested PM that the country should be called only 'Bharat' instead of having the alternative official name of India. Digamber Jain Community's local spokesman Ravindra Jain said, "No country has two names and so should be in the case of our nation, he told the Prime Minister." The Acharya talked about the role of women in the society and how they should be empowered. They also discussed how education was important for development of the country, sources said.PM released the Gujarati version of Mook Maati, a religious book written by Acharya Vidyasagar.
+                        </p>
+                        <p>
+                            ThePrime Minister was reportedly happy to receive the first copy of the book and is said to have taken it for his onward journey to Goa. The Jain monk also gifted a hand-made cotton sari to the Prime Minister for his mother. Only five other monks, Chouhan, and Pramode Jain were present inside the temple withPM and the Acharya. Governor OP Kohli, finance minister Jayant Malaiya and MoS Sharad Jain were seen waiting outside.
+                        </p>
+
+                    </div>
+
+                    <div class="box" ><!-- flex item -->
+                        <img src="assets/img/vishal_Dadlani_Tarun_Sagar.jpg" alt="" />
+                        <p><h3> 2) VISHAL DADLANI APOLOGISES TO JAIN MONK TARUN SAGAR OVER HIS 'SARCASTIC' TWEET</h3></p>
+                    </div>
+
+                    <div class="news_detail">
+                        <p>21st September 2016, Chandigarh: Music composer Vishal Dadlani apologised to Jain monk Tarun Sagar in Chandigarh for his tweet on the leaders address to the Haryana assembly that created controversy.</p>
+                        <br>
+                        <p>Muni Tarun Sagarji said, I have forgiven Vishal Dadlani and the Jain Samaj should also forgive him. Dadlani had described Muniji speech in the assembly on August 26 as "monkery" and later deleted the tweet. He was critical of the speech saying the monk has no clothes on, suggesting that it reflected an unhealthy trend of religion colouring politics. Dadlani reached the Digambar Jain temple, Sector-27 and held a close door meeting with the monk that lasted for about 20 minutes. Prior to this, Dadlani also held meeting with Digambar Jain society in Chandigarh. He said, "I regret whatever I had said earlier." "Unknowingly, I had commented about guru ji. But after hearing his 'kadve parvachan' (harsh words), I found them sweet," he added. The controversy had also led to Dadlani quitting the Aam Aadmi Party. The Supreme Court had also refused protection from arrest to the music composer on the issue after an FIR was lodged against him in Haryana. The bench had asked him to approach the high court concerned. The FIR was lodged against Dadlani by the Ambala Cantt police for allegedly hurting religious sentiments with his sarcastic tweet on the Jain monk.</p>
+                    </div>
+
+                    <div class="box" ><!-- flex item -->
+                        <img src="assets/img/hilary.jpg" alt="" />
+                        <p><h3> 3) ACHARYA LOKESH SAYS US & INDIA SHOULD JOINTLY FIGHT TERRORISM</h3></p>
+                    </div>
+
+                    <div class="news_detail">
+                        <p>19th September 2016 : The founder of Ahimisa Vishwa Bharti and eminent Jain Acharya, Dr. Lokesh Muni ji, recently met United States Presidential candidate Hillary Clinton in California and held a round of talks with her, on US elections, India - US relations and Modi Government's development policies in detail. During the meeting, the two agreed that India can play a prominent role in global affairs in the years to come. Hillary Clinton said that spiritual leaders can also play an important role in this. Clinton, while appreciating Acharya Dr. Lokesh Muni's Peace and Harmony Tour to USA, said that terrorism, violence, poverty and illiteracy are the major global problems. Political, Spiritual, Social and Business leaders of America and India can work together to solve these global problems.</p>
+                        <br>
+                        <p>On his turn, Acharya Lokesh said that not only India and America but different parts of the world are affected by terrorism. America and India should together fight against terrorism. He said that India and US need to work together to find solutions for the menace of poverty and illiteracy in other parts of the world. Acharya Lokesh Muni told Clinton during this meeting that Prime Minister of India Mr. Narendra Modi is laying a strong foundation for the development of India. One should realize that it takes time to fix things. His government is moving in the right direction. Its results in the coming days would be visible.</p>
+                        <br>
+                        <p>Acharya Lokesh invited Clinton for Jaina Convention 2017 to be held in New Jersy from 30 June to 4 July in which around 7000 representatives from 70 Jain Centres in America and from India, Canada, Britain also from other parts of the world willparticipate.</p>
+                    </div>
+
+                    <div class="box" ><!-- flex item -->
+                        <img src="assets/img/uddhav.jpg" alt="" />
+                        <p><h3> 4)UDDHAV THACKERAY VISITS ACHARYA SHRI VIJAY PREMSURISHWARJI</h3></p>
+                    </div>
+
+                    <div class="news_detail">
+                        <p>On the occasion of Paryushan, Shiv Sena leader Uddhav Thackeray paid a visit to the Breach Candy hospital along with senior members of his party, to check on the health of Acharya Maharaj Shri Vijay Premsurishwarji, one of the Jain community's senior most personalities who was in ICU. Uddhavji spent time with Acharya Maharaj. He also spoke to the doctors, who were treating him and inquired about the progress of his health and treatment. He also took the opportunity to wish Michhami Dukkadam to all the Jains across India. Thackeray's gentle ways in stark contrast to his more strident late father Bal Thackeray have set him apart.</p>
+                    </div>
+
+                    <div class="box" ><!-- flex item -->
+                        <img src="assets/img/japan.jpg" alt="" />
+                        <p><h3> 5) JAINISM REACHES JAPAN</h3></p>
+                    </div>
+                    <div class="news_detail">
+                        <p>21st September 2016: Ahmedabad : When a group of Japanese nationals visited Gachchanath Manoharpritisurishwar Maharaj at Paldi, other devotees were left stunned.The visitors were wearing Indian traditional clothes with forehead tilak. They also recited the Navkarmantra. However, for the devotees from Japan, it was nothing out of the ordinary, as they have adopted a number of Jain practices.</p>
+                        <br>
+                        <p>Acharya Udaykirtisagar Maharaj said the group has adopted vegetarianism and also perform religious rituals at home. They also observe practices such as Aththai and Chovihar and drink boiled water. Members of the group accepted vaskshep and raksha potli from gurus. They also visited Nakoda Tirth. It has become a ritual for the group to visit the Gachchanath Manoharpritisurishwar Maharaj, wherever he is in chaturmaas every year. Mai Tahibana, a wedding counsellor in Japan, said that vegetarianism is catching on fast in that country.He also said "Jain practices give peace of mind and takes practitioners to a higher plane of consciousness."  He further said, " many members of the group are learning Hindi to understand Indian culture". Kon Taro, an academician, said that he has been studying Jain astrology under experts. "I have embraced Jain practices for the past seven years. We perform group prayers in Japan. I was not a practitioner of Buddhism, but when I came to know about Jainism, I found a connect," he said. The group members said that they keep in touch with the Jain monks through technology to understand various practices, and also to seek guidance over issues ranging from personal to professional matters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success" name="section-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="heading">New Members</h2>
+                    <hr class="star-light">
+                </div>
+                <div ng-cloak ng-repeat="member in commmitteeMembers | filter: searchText">
+                    <div class="clearfix" ng-if="$index % 4 == 0"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <a ng-href="https://jhipster.github.io/modules/marketplace/#/details/{(module.package.name)}"
+                           title="{(module.package.description)}">
+                            <div class="card dark module summary-inline">
+                                <div class="card-body">
+                                    <i class="icon fa fa-cube fa-3x"></i>
+                                    <div class="content">
+                                        <div class="title fontSmall">{{member.name}}</div>
+                                        <div class="sub-title"><span class="fa fa-user"></span>  &nbsp; <span class="fa fa-mobile"></span> &nbsp; {{member.mobile}}</div>
+                                    </div>
+                                    <div class="clear-both"></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center" id="footer">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <div class="col-md-4 col-sm-12">
+                            <h5 class="text-left"><i class="fa fa-coffee fa-fw"></i> <a class="link" href="">Team</a></h5>
+                            <h5 class="text-left"><i class="fa fa-pencil fa-fw"></i> <a class="link" href="">Artwork</a></h5>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="">Policies</a></h5>
+                            <h5 class="text-left"><i class="fa fa-gift fa-fw"></i> <a class="link" href="">Thanks</a></h5>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <h5 class="text-left"><i class="fa fa-archive fa-fw"></i> <a class="link" href="https://jhipster.github.io/documentation-archive/">Archives</a></h5>
+                        </div>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://twitter.com" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://facebook.com" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-comments"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright © Jain Samaj 2017
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

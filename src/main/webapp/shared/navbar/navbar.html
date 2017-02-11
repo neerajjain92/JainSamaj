@@ -1,0 +1,49 @@
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#facts" class="navbar-brand nav-header-logo" du-smooth-scroll du-scrollspy><img src="assets/img/swastika.png"></a>
+            <ul class="nav navbar-nav">
+                <li class="page-scroll" ng-if="!isUserLoggedIn">
+                    <a href="#section-1" du-smooth-scroll du-scrollspy>Gallery</a>
+                </li>
+                <li ng-if="isUserLoggedIn">
+                    <a href="#!/addMember" >Add Member</a>
+                </li>
+                <li ng-if="isUserLoggedIn">
+                    <a href="#!/membersList" >Members</a>
+                </li>
+                <li class="page-scroll" ng-if="!isUserLoggedIn">
+                    <a href="#section-2" du-smooth-scroll du-scrollspy>Members</a>
+                </li>
+                <li class="page-scroll" ng-if="!isUserLoggedIn">
+                    <a href="#section-3" du-smooth-scroll du-scrollspy>News</a>
+                </li>
+                <li class="page-scroll" ng-if="!isUserLoggedIn">
+                    <a href="#section-4" du-smooth-scroll du-scrollspy>New Members</a>
+                </li>
+                <li class="page-scroll" ng-if="!isUserLoggedIn">
+                    <a href="#footer" du-smooth-scroll du-scrollspy>Contact Us</a>
+                </li>
+            </ul>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li ng-if="!isUserLoggedIn"><a href="#" ui-sref="login({selectedTab: 2})"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li ng-if="!isUserLoggedIn"><a href="#" ui-sref="login({selectedTab: 1})"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li ng-if="isUserLoggedIn" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href ><strong>Welcome {{userProfile.users.userName}}</strong>
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href> Name : {{userProfile.users.firstName + userProfile.users.lasttName}}</a></li>
+                    <li class="divider"></li>
+                    <li><a href>CreationDtm : {{userProfile.users.creationDtm}}</a></li>
+                    <li class="divider"></li>
+                    <li><a href>Last Login  : {{userProfile.lastLoginDtm}}</a></li>
+                </ul>
+            </li>
+            <li ng-if="isUserLoggedIn"><a ng-click="doLogout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+

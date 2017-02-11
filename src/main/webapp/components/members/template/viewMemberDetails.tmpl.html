@@ -1,0 +1,43 @@
+<md-dialog aria-label="Member Detail">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{selectedMember.firstName}} {{selectedMember.lastName}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-tooltip>Close</md-tooltip>
+                    <md-icon aria-label="Close dialog">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+
+                <span style="text-align: center"><h4>Basic Information of {{selectedMember.firstName}} {{selectedMember.lastName}}</h4></span>
+                <table class="table table-hover table-stripped">
+                    <tr ng-repeat="(property,value) in selectedMember">
+                        <td><strong>{{property}}</strong></td>
+                        <td><span style="color: violet">{{value}}</span></td>
+                    </tr>
+                </table>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="sendEmail(selectedMember.emailid,'Jain Samaj','Hello')">
+                <md-tooltip>Send Mail</md-tooltip>
+                <md-icon>mail</md-icon>
+            </md-button>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-tooltip>Close Member Detail</md-tooltip>
+                <md-icon>close</md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-tooltip>Looks Good</md-tooltip>
+                <md-icon>check</md-icon>
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

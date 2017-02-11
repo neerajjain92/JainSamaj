@@ -1,0 +1,74 @@
+<div class="login-content-div">
+<md-content layout="row" layout-align="space-around" ng-cloak="ng-cloak" class="login-form login-content">
+        <md-card style="margin: 100px;" flex="flex" flex-gt-sm="50" flex-gt-md="33">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2><span>Login Form</span></h2>
+                    </div>
+                </md-toolbar>
+                <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="selectedTab">
+                    <md-tab label="Login">
+                        <md-card-content>
+                            <form name="loginForm" id="loginForm" autocomplete="off" ng-submit="login()">
+                                <md-input-container class="md-block">
+                                    <label>Login</label>
+                                    <input restrict-spaces readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" type="text" name="userName" ng-model="existingUser.userName" placeholder="userName" required minlength="3" md-maxlength="20"/>
+                                    <div ng-messages="loginForm.userName.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter your userName.</div>
+                                        <div ng-message="minlength" class="my-message">User Name should be more than 3 characters.</div>
+                                        <div ng-message="md-maxlength" class="my-message">User Name should not more than 20 characters.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Password</label>
+                                    <input restrict-spaces readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" type="password" name="password" ng-model="existingUser.password" placeholder="password" required minlength="3" md-maxlength="10"/>
+                                    <div ng-messages="loginForm.password.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter your password.</div>
+                                        <div ng-message="minlength" class="my-message">Password should be more than 3 characters.</div>
+                                        <div ng-message="md-maxlength" class="my-message">Password should not more than 10 characters.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-button ng-disabled="!loginForm.$valid"  type="submit" class="md-raised md-primary">&nbsp Login &nbsp</md-button>
+                            </form>
+                        </md-card-content>
+                    </md-tab>
+                    <md-tab label="Register">
+                        <md-card-content>
+                            <form name="registrationForm" id="registrationForm" autocomplete="off" ng-submit="createUser()">
+                                <md-input-container class="md-block">
+                                    <label>First Name</label>
+                                    <input restrict-spaces readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" type="text" name="firstName" ng-model="newUser.firstName" placeholder="firstName" required minlength="3" md-maxlength="10"/>
+                                    <div ng-messages="registrationForm.firstName.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter your first Name.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Last Name</label>
+                                    <input restrict-spaces readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" type="text" name="lastName" ng-model="newUser.lastName" placeholder="lastName" required minlength="3" md-maxlength="10"/>
+                                    <div ng-messages="registrationForm.lastName.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter your last Name.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>User Name</label>
+                                    <input restrict-spaces readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" type="text" name="userName" ng-model="newUser.userName" placeholder="userName" required minlength="3" md-maxlength="20"/>
+                                    <div ng-messages="registrationForm.userName.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter your User Name</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Password</label>
+                                    <input restrict-spaces readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" type="password" name="password" ng-model="newUser.password" placeholder="password" required minlength="3" md-maxlength="10"/>
+                                    <div ng-messages="registrationForm.password.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter your password.</div>
+                                        <div ng-message="md-maxlength" class="my-message">Too long.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-button ng-disabled="!registrationForm.$valid" type="submit" ng-click="createUser()" class="md-raised md-primary">&nbsp Create User &nbsp</md-button>
+                            </form>
+                        </md-card-content>
+                    </md-tab>
+                </md-tabs>
+        </md-card>
+    </md-content>
+</div>

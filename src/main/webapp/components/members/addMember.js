@@ -5,7 +5,7 @@ angular.module('myApp')
         });
 
         $scope.relationMst = ["Self","Father","Mother","Wife","Son","Daughter","Friend","Brother-In-Law","Sister-In-Law","Son-In-Law","D/O","Grand Daughter","Son's wife","Daughter in law","Grand Son"];
-        
+
         $scope.member = {
             firstName:null,
             middleName:null,
@@ -41,7 +41,7 @@ angular.module('myApp')
                 if(requestStatus === "fail"){
                     notify({
                         message: response.error,
-                        classes: 'alert-danger',
+                        templateUrl: '/shared/notification/notification-error.tmpl.html',
                         position: 'center',
                     });
                     return false;
@@ -133,14 +133,14 @@ angular.module('myApp')
                     if(requestStatus === "fail"){
                         notify({
                             message: response.error,
-                            classes: 'alert-danger',
+                            templateUrl: '/shared/notification/notification-error.tmpl.html',
                             position: 'center',
                         });
                         return false;
                     }else {
                         notify({
                             message: response.message,
-                            classes: 'alert-danger',
+                            templateUrl: '/shared/notification/notification-success.tmpl.html',
                             position: 'center',
                         });
                         $scope.loadStuff();
@@ -150,7 +150,7 @@ angular.module('myApp')
                 $scope.status = 'You decided to keep your debt.';
             });
         };
-        
+
         $scope.viewMemberDetails = function (ev, member) {
             $scope.selectedMember = member;
             $mdDialog.show({

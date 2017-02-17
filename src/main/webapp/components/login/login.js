@@ -1,16 +1,22 @@
 angular.module('myApp')
-    .controller('loginController', ['$scope', 'LoginService', '$state', 'notify','$sessionStorage', '$stateParams', '$rootScope', function ($scope, LoginService, $state, notify, $sessionStorage, $stateParams, $rootScope) {
+    .controller('loginController', ['$scope', 'LoginService', '$state', 'notify','$sessionStorage', '$stateParams', '$rootScope', '$mdDialog', function ($scope, LoginService, $state, notify, $sessionStorage, $stateParams, $rootScope, $mdDialog) {
 
         $scope.newUser = {
             firstName:null,
             lastName:null,
             userName:null,
-            password:null
+            password:null,
+            mobileNumber:null,
+            emailId:null
         };
 
         $scope.existingUser = {
             userName:null,
             password:null
+        };
+
+        $scope.forgotPasswordObject = {
+            emailId:null
         };
 
         if($stateParams.selectedTab){
@@ -28,7 +34,7 @@ angular.module('myApp')
                     $rootScope.showLoader = false;
                     notify({
                         message: response.error,
-                        classes: 'alert-danger',
+                        templateUrl: '/shared/notification/notification-error.tmpl.html',
                         position: 'center',
                     });
                     return false;
@@ -36,8 +42,8 @@ angular.module('myApp')
                     $rootScope.showLoader = false;
                     $sessionStorage.userProfile = response.userProfile;
                     notify({
-                        message: 'Welcome ['+$scope.existingUser.userName+'] you logged In Successfully !!',
-                        classes: 'alert-success',
+                        message: 'Welcome '+response.userProfile.users.firstName+', You logged In Successfully !!',
+                        templateUrl: '/shared/notification/notification-success.tmpl.html',
                         position: 'center',
                     });
                     $state.go('addMember');
@@ -49,6 +55,7 @@ angular.module('myApp')
         $scope.createUser = function () {
             $rootScope.showLoader = true;
             notify.closeAll();
+            console.log($scope.newUser);
             var loginPayload = $scope.newUser;
             LoginService.createUser(loginPayload).then(function (response) {
                 var response = response.data;
@@ -57,19 +64,58 @@ angular.module('myApp')
                     $rootScope.showLoader = false;
                     notify({
                         message: response.error,
-                        classes: 'alert-dander',
-                        position: 'center',
+                        templateUrl: '/shared/notification/notification-error.tmpl.html',
+                        position: 'center'
                     });
                     return false;
                 }else{
                     $rootScope.showLoader = false;
                     $sessionStorage.userProfile = response;
                     notify({
-                        message: 'User with userName : [ '+ $scope.newUser.userName+' ] Created Successfully, Please login Now!!',
-                        classes: 'alert-success',
+                        message: response.note,
+                        templateUrl: '/shared/notification/notification-success.tmpl.html',
                         position: 'center',
                     });
                 }
+            });
+        }
+
+        $scope.forgotPassword = function (ev) {
+
+            var confirm = $mdDialog.prompt()
+                .title('Forgot Password!')
+                .textContent('Please Enter Your Registered Email Address')
+                .placeholder('Registered Email Address')
+                .ariaLabel('Registered Email Address')
+                .targetEvent(ev)
+                .ok('Send Password!')
+                .cancel('Cancel');
+
+            $mdDialog.show(confirm).then(function(response) {
+                console.log(response);
+                $rootScope.showLoader = true;
+                $scope.forgotPasswordObject.emailId = response;
+                LoginService.forgotPassword($scope.forgotPasswordObject).then(function (response) {
+                    response = response.data;
+                    var requestStatus = response.status;
+                    if(requestStatus === "fail"){
+                        $rootScope.showLoader = false;
+                        notify({
+                            message: response.error,
+                            templateUrl: '/shared/notification/notification-error.tmpl.html',
+                            position: 'center'
+                        });
+                        return false;
+                    }else{
+                        $rootScope.showLoader = false;
+                        notify({
+                            message: "Password Sent to Registered Email Id, Please check and login",
+                            templateUrl: '/shared/notification/notification-success.tmpl.html',
+                            position: 'center'
+                        });
+                    }
+                });
+            }, function () {
             });
         }
 

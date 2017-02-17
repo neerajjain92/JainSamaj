@@ -1,0 +1,55 @@
+<md-dialog aria-label="Upload Profile Picture" class="uploadProfilePictureDialogBox">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2><i class="icon fa fa-upload fa-2x"></i> &nbsp;Upload Profile Picture</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()" md-autofocus>
+                <md-tooltip>Close</md-tooltip>
+                <md-icon aria-label="Close dialog">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <label class="btn btn-primary" for="fileInput">
+                <input id="fileInput" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());">
+                Browse Profile Picture
+            </label>
+            <span class='label label-info' id=""></span>
+            <table class="profile-table">
+                <thead>
+                    <tr>
+                        <th>Original Image</th>
+                        <th>Cropped Image</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        <div class="cropArea">
+                            <img-crop image="myImage" result-image="myCroppedImage" change-on-fly="true" result-image-quality="1.0"></img-crop>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="croppedImage">
+                            <img ng-src="{{myCroppedImage}}" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <md-button class="md-raised md-cornered" ng-click="cancel()">
+            <md-tooltip>Cancel</md-tooltip>
+            <md-icon>close</md-icon>
+            Cancel
+        </md-button>
+        <span flex></span>
+        <md-button class="md-raised md-primary md-cornered" ng-click="uploadProfilePicture()">
+            <md-tooltip>Upload Profile Picture</md-tooltip>
+            <i class="icon fa fa-upload "></i>
+            Upload
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

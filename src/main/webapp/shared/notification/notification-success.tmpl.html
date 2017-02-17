@@ -1,0 +1,29 @@
+<div class="success-template cg-notify-message" ng-click="$close()" ng-class="[$classes,
+    $position === 'center' ? 'cg-notify-message-center' : '',
+    $position === 'left' ? 'cg-notify-message-left' : '',
+    $position === 'right' ? 'cg-notify-message-right' : '']"
+     ng-style="{'margin-left': $centerMargin}">
+
+
+    <style>
+        .success-template {
+            text-align: center;
+            border: #F9F9F9;
+            background: #3E8ACC;
+            font-size: 15px;
+            font-weight: bold;
+            padding:10px;
+            border-radius: 0;
+            color: #F9F9F9;
+        }
+    </style>
+
+    <div ng-show="!$messageTemplate">
+        {{$message}}
+    </div>
+
+    <div ng-show="$messageTemplate" class="cg-notify-message-template">
+
+    </div>
+
+</div>

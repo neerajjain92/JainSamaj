@@ -1,6 +1,6 @@
 <div class="login-content-div">
-<md-content layout="row" layout-align="space-around" ng-cloak="ng-cloak" class="login-form login-content">
-        <md-card style="margin: 100px;" flex="flex" flex-gt-sm="50" flex-gt-md="33">
+    <md-content layout="row" layout-align="space-around" ng-cloak="ng-cloak" class="login-form login-content">
+        <md-card style="margin-top: 100px;" flex="flex" flex-gt-sm="50" flex-gt-md="33">
                 <md-toolbar>
                     <div class="md-toolbar-tools">
                         <h2><span>Login Form</span></h2>
@@ -29,6 +29,7 @@
                                     </div>
                                 </md-input-container>
                                 <md-button ng-disabled="!loginForm.$valid"  type="submit" class="md-raised md-primary">&nbsp Login &nbsp</md-button>
+                                <a href ng-click="forgotPassword($event)" >Forgot Password?</a>
                             </form>
                         </md-card-content>
                     </md-tab>
@@ -64,11 +65,53 @@
                                         <div ng-message="md-maxlength" class="my-message">Too long.</div>
                                     </div>
                                 </md-input-container>
-                                <md-button ng-disabled="!registrationForm.$valid" type="submit" ng-click="createUser()" class="md-raised md-primary">&nbsp Create User &nbsp</md-button>
+                                <md-input-container class="md-block">
+                                    <label>Mobile Number</label>
+                                    <input restrict-spaces readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" type="text" name="mobileNumber" ng-model="newUser.mobileNumber" placeholder="mobileNumber" required minlength="10" md-maxlength="10" ng-pattern="/^[789]\d{9}$/">
+                                    <div ng-messages="registrationForm.mobileNumber.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter your Mobile Number.</div>
+                                        <div ng-message="pattern" class="my-message">That doesn't look like a valid Indian Mobile Number.</div>
+                                        <div ng-message="minlength" class="my-message">Mobile Number should be min of 10 digits</div>
+                                        <div ng-message="maxlength" class="my-message">Mobile Number should be max of  10 digits.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Email Id</label>
+                                    <input type="email" restrict-spaces readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" type="text" name="emailId" ng-model="newUser.emailId" placeholder="emailId" required/>
+                                    <div ng-messages="registrationForm.emailId.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter your Email Id.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-button ng-disabled="!registrationForm.$valid" type="submit"  class="md-raised md-primary">&nbsp Create User &nbsp</md-button>
                             </form>
                         </md-card-content>
                     </md-tab>
                 </md-tabs>
         </md-card>
     </md-content>
+    <section class="success" style="padding-left: 20px; padding-top: 80px;">
+        <div class="container" style="width: 1050px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="login-note">
+                       <i class="fa  fa-info-circle fa-1x"></i>&nbsp;Notes:
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="login-note-points">
+                        <i class="fa  fa-hand-o-right fa-1x"></i>&nbsp;At the time of registration, Try using unique <b>user Name</b>, <b>Email Id</b> and <b>Mobile Number</b>.<br>
+                    </span>
+                    <span class="login-note-points">
+                       <i class="fa  fa-hand-o-right fa-1x"></i>&nbsp;On Successful Registration, you will receive an <b>email</b> for subscription, Please confirm that in order to receive further emails from this website<br>
+                    </span>
+                    <span class="login-note-points">
+                        <i class="fa  fa-hand-o-right fa-1x"></i>&nbsp;<u>Forgot Password?</u> No worries, just provide your registered email Id and we will take care of rest :)<br>
+                    </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

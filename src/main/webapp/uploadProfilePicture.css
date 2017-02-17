@@ -1,0 +1,30 @@
+.uploadProfilePictureDialogBox {
+    width: 70%;
+    height:80%;
+}
+
+/*.profile-table > td > th {*/
+    /*border: 1px solid #ddd;*/
+    /*text-align: left;*/
+    /*padding: 15px;*/
+/*}*/
+
+.profile-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+.cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width:600px;
+    height:380px;
+}
+
+.croppedImage {
+    background: #E4E4E4;
+    overflow: hidden;
+    width:200px;
+    height:200px;
+}

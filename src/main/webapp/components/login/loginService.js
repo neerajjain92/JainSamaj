@@ -33,12 +33,39 @@
             });
         }
 
+        function forgotPassword(_payload) {
+            return $http({
+                method: 'POST',
+                url: baseURL+'/rest/api/forgotPassword',
+                data: _payload
+            })
+        }
+
+        function changePassword(_payload) {
+            return $http({
+                method: 'POST',
+                url: baseURL+'/rest/api/changePassword',
+                data: _payload
+            })
+        }
+
+        function uploadProfilePicture(_payload) {
+            return $http({
+                method: 'POST',
+                url: baseURL+'/rest/api/uploadProfilePicture',
+                data: _payload
+            });
+        }
+
         // Return the factor itself with setters and getters
         return {
             doLogin: doLogin,
             createUser: createUser,
             doLogout: doLogout,
-            checkIfLoggedIn: checkIfLoggedIn
+            checkIfLoggedIn: checkIfLoggedIn,
+            forgotPassword: forgotPassword,
+            changePassword: changePassword,
+            uploadProfilePicture: uploadProfilePicture
         };
     }
 

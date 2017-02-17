@@ -33,5 +33,14 @@ gulp.task('proxy', function() {
 });
 
 gulp.task('default',['browser-sync'], function () {
-    browserSync.reload();
+
+    var jsFiles = [
+            'src/main/webapp/**/*.js'
+        ],
+        htmlTemplates = [
+            'src/main/webapp/**/*.html'
+        ];
+
+    gulp.watch(jsFiles,browserSync.reload);
+    gulp.watch(htmlTemplates,browserSync.reload);
 });

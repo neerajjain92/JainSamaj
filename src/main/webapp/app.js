@@ -12,7 +12,8 @@ angular.module('myApp', [
     'ngStorage',
     'md.data.table',
     'ngCookies',
-    'ngMessages'
+    'ngMessages',
+    'ngImgCrop'
 ]).
 config(function ($stateProvider, $urlRouterProvider, $compileProvider, $httpProvider) {
 

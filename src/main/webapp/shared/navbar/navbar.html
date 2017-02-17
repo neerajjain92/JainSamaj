@@ -29,18 +29,33 @@
         <ul class="nav navbar-nav navbar-right">
             <li ng-if="!isUserLoggedIn"><a href="#" ui-sref="login({selectedTab: 2})"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li ng-if="!isUserLoggedIn"><a href="#" ui-sref="login({selectedTab: 1})"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li style="margin-top: 11px" ng-if="isUserLoggedIn">
+                <p>
+                    <small>
+                        <ng-letter-avatar data="{{userProfile.users.firstName +' '+ userProfile.users.lastName}}" shape="round" charCount="2" width=35 height=35 fontSize="30px"></ng-letter-avatar>
+                    </small>
+                </p>
+            </li>
             <li ng-if="isUserLoggedIn" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href ><strong>Welcome {{userProfile.users.userName}}</strong>
+                <a class="dropdown-toggle" data-toggle="dropdown" href ><strong>Hi, {{userProfile.users.userName}}</strong>
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href> Name : {{userProfile.users.firstName + userProfile.users.lasttName}}</a></li>
+                    <li><a href><i class="icon fa fa-user fa-2x"></i>&nbsp; {{userProfile.users.firstName +" "+ userProfile.users.lastName}}</a></li>
                     <li class="divider"></li>
-                    <li><a href>CreationDtm : {{userProfile.users.creationDtm}}</a></li>
+                    <li><a href><i class="icon fa fa-envelope fa-2x"></i>&nbsp;  {{userProfile.users.emailId | lowercase}}</a></li>
                     <li class="divider"></li>
-                    <li><a href>Last Login  : {{userProfile.lastLoginDtm}}</a></li>
+                    <li><a href><i class="icon fa fa-mobile fa-2x"></i>&nbsp;&nbsp;  {{userProfile.users.mobileNumber}}</a></li>
+                    <li class="divider"></li>
+                    <li><a href><i class="icon fa fa-clock-o fa-2x"></i>&nbsp;&nbsp;Last Visit : {{userProfile.lastLoginDtm}}</a></li>
+                    <li class="divider"></li>
+                    <li><a ng-click="uploadProfilePicture($event)"><i class="icon fa fa-upload fa-2x"></i>&nbsp; Upload Profile Picture</a></li>
+                    <li class="divider"></li>
+                    <li><a ng-click="changePassword($event)"><i class="icon fa fa-user-secret fa-2x"></i>&nbsp; Change Password</a></li>
+                    <li class="divider"></li>
+                    <li><a ng-click="doLogout()"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
                 </ul>
             </li>
-            <li ng-if="isUserLoggedIn"><a ng-click="doLogout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            <!--<li ng-if="isUserLoggedIn"><a ng-click="doLogout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>-->
         </ul>
     </div>
 </nav>

@@ -47,6 +47,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="shared/loader/loader.css">
     <link rel="stylesheet" href="shared/scrollToTop/scrollToTop.css">
+    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/unminified/ng-img-crop.css">
 
 
     <link rel="stylesheet" href="assets/css/app.css">
@@ -55,79 +56,81 @@
     <link rel="stylesheet" href="assets/css/addMember.css">
     <link rel="stylesheet" href="components/members/members.css">
     <link rel="stylesheet" href="assets/css/flat-blue.css">
+    <link rel="stylesheet" href="uploadProfilePicture.css">
 </head>
 <body class="flat-blue">
-<div class="app-container home">
-    <div class="row content-container">
-        <ui-view name="nav"></ui-view>
-        <ui-view name="content"></ui-view>
-    </div>
-</div>
-<div ng-if="showLoader">
-    <div class="bg_load"></div>
-    <div class="wrapper">
-        <div class="inner">
-            <span>L</span>
-            <span>o</span>
-            <span>a</span>
-            <span>d</span>
-            <span>i</span>
-            <span>n</span>
-            <span>g</span>
+    <div class="app-container home">
+        <div class="row content-container">
+            <ui-view name="nav"></ui-view>
+            <ui-view name="content"></ui-view>
         </div>
     </div>
-</div>
-<a id="backTop">Back To Top</a>
+    <div ng-if="showLoader">
+        <div class="bg_load"></div>
+        <div class="wrapper">
+            <div class="inner">
+                <span>L</span>
+                <span>o</span>
+                <span>a</span>
+                <span>d</span>
+                <span>i</span>
+                <span>n</span>
+                <span>g</span>
+            </div>
+        </div>
+    </div>
+    <a id="backTop">Back To Top</a>
 
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="bower_components/angular-scroll/angular-scroll.js"></script>
-<script src="bower_components/angular-touch/angular-touch.js"></script>
-<script src="bower_components/slick-carousel/slick/slick.js"></script>
-<script src="bower_components/angular-slick/dist/slick.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-aria/angular-aria.js"></script>
-<script src="bower_components/angular-material/angular-material.js"></script>
-<script src="bower_components/ng-letter-avatar/ngletteravatar.js"></script>
-<script src="http://cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
-<script src="bower_components/angular-notify/dist/angular-notify.js"></script>
-<script src="bower_components/ngstorage/ngStorage.js"></script>
-<script src="bower_components/angular-material-data-table/dist/md-data-table.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-messages/angular-messages.js"></script>
-<script src="bower_components/angular-timer/dist/angular-timer.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="bower_components/angular-slick/dist/slick.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/ng-letter-avatar/ngletteravatar.js"></script>
+    <script src="http://cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
+    <script src="bower_components/angular-notify/dist/angular-notify.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-timer/dist/angular-timer.js"></script>
+    <script src="bower_components/ng-img-crop/compile/unminified/ng-img-crop.js"></script>
 
-<script src="app.js"></script>
-<script src="shared/navbar/navbar.js"></script>
-<script src="security/apiInterceptor.js"></script>
-<script src="components/home/homeService.js"></script>
-<script src="components/login/loginService.js"></script>
-<script src="components/home/home.js"></script>
-<script src="components/login/login.js"></script>
-<script src="components/members/addMember.js"></script>
-<script src="components/members/memberService.js"></script>
+    <script src="app.js"></script>
+    <script src="shared/navbar/navbar.js"></script>
+    <script src="security/apiInterceptor.js"></script>
+    <script src="components/home/homeService.js"></script>
+    <script src="components/login/loginService.js"></script>
+    <script src="components/home/home.js"></script>
+    <script src="components/login/login.js"></script>
+    <script src="components/members/addMember.js"></script>
+    <script src="components/members/memberService.js"></script>
 
-<script src="components/version/version.js"></script>
-<script src="components/version/version-directive.js"></script>
-<script src="components/version/interpolate-filter.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
 
-<script src="shared/scrollToTop/scrollTop.js"></script>
+    <script src="shared/scrollToTop/scrollTop.js"></script>
 
-<!-- Initialize -->
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#backTop").backTop({
-            'position': 100,
-            'speed': 500,
-            'color': 'red',
+    <!-- Initialize -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#backTop").backTop({
+                'position': 100,
+                'speed': 500,
+                'color': 'red',
+            });
+            $.ajaxSetup({cache: false});
         });
-        $.ajaxSetup({cache: false});
-    });
 
 
-</script>
+    </script>
 
 </body>
 </html>

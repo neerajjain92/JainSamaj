@@ -1,5 +1,6 @@
 .flat-blue {
     background-color: #F9F9F9;
+    /*background: #3E8ACC;*/
     /* small screen */ }
 .flat-blue a:hover {
     color: #09486b; }
@@ -84,8 +85,10 @@
 .flat-blue .navbar.navbar-inverse .navbar-nav > li.danger.open > a {
     background-color: #FA2A00; }
 .flat-blue .navbar.navbar-inverse .navbar-nav .dropdown-menu {
-    background-color: #F9F9F9;
+    background-color: rgb(255,255,255);
     border-color: #353d47; }
+.flat-blue .navbar.navbar-inverse .navbar-nav .dropdown-menu >li:hover {
+    color: black!important;}
 .flat-blue .navbar.navbar-inverse .navbar-nav .dropdown-menu .title {
     background-color: #FFF; }
 .flat-blue .navbar.navbar-inverse .navbar-nav .dropdown-menu .title .badge {

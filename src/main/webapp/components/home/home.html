@@ -95,6 +95,7 @@
                             <!--</span>-->
                         <!--</div>-->
                     <!--</slick>-->
+                    <!--<div ui-calendar ng-model="eventSources"></div>-->
                 </div>
             </div>
         </div>
@@ -120,7 +121,7 @@
                 <div ng-cloak ng-repeat="member in commmitteeMembers | filter: searchText">
                     <div class="clearfix" ng-if="$index % 4 == 0"></div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <a ng-href="https://jhipster.github.io/modules/marketplace/#/details/{(module.package.name)}"
+                        <a ng-href=""
                            title="{(module.package.description)}">
                             <div class="card dark module summary-inline">
                                 <div class="card-body">
@@ -183,22 +184,10 @@
                         <p>Muni Tarun Sagarji said, I have forgiven Vishal Dadlani and the Jain Samaj should also forgive him. Dadlani had described Muniji speech in the assembly on August 26 as "monkery" and later deleted the tweet. He was critical of the speech saying the monk has no clothes on, suggesting that it reflected an unhealthy trend of religion colouring politics. Dadlani reached the Digambar Jain temple, Sector-27 and held a close door meeting with the monk that lasted for about 20 minutes. Prior to this, Dadlani also held meeting with Digambar Jain society in Chandigarh. He said, "I regret whatever I had said earlier." "Unknowingly, I had commented about guru ji. But after hearing his 'kadve parvachan' (harsh words), I found them sweet," he added. The controversy had also led to Dadlani quitting the Aam Aadmi Party. The Supreme Court had also refused protection from arrest to the music composer on the issue after an FIR was lodged against him in Haryana. The bench had asked him to approach the high court concerned. The FIR was lodged against Dadlani by the Ambala Cantt police for allegedly hurting religious sentiments with his sarcastic tweet on the Jain monk.</p>
                     </div>
 
-                    <div class="box" ><!-- flex item -->
-                        <img src="assets/img/hilary.jpg" alt="" />
-                        <p><h3> 3) ACHARYA LOKESH SAYS US & INDIA SHOULD JOINTLY FIGHT TERRORISM</h3></p>
-                    </div>
-
-                    <div class="news_detail">
-                        <p>19th September 2016 : The founder of Ahimisa Vishwa Bharti and eminent Jain Acharya, Dr. Lokesh Muni ji, recently met United States Presidential candidate Hillary Clinton in California and held a round of talks with her, on US elections, India - US relations and Modi Government's development policies in detail. During the meeting, the two agreed that India can play a prominent role in global affairs in the years to come. Hillary Clinton said that spiritual leaders can also play an important role in this. Clinton, while appreciating Acharya Dr. Lokesh Muni's Peace and Harmony Tour to USA, said that terrorism, violence, poverty and illiteracy are the major global problems. Political, Spiritual, Social and Business leaders of America and India can work together to solve these global problems.</p>
-                        <br>
-                        <p>On his turn, Acharya Lokesh said that not only India and America but different parts of the world are affected by terrorism. America and India should together fight against terrorism. He said that India and US need to work together to find solutions for the menace of poverty and illiteracy in other parts of the world. Acharya Lokesh Muni told Clinton during this meeting that Prime Minister of India Mr. Narendra Modi is laying a strong foundation for the development of India. One should realize that it takes time to fix things. His government is moving in the right direction. Its results in the coming days would be visible.</p>
-                        <br>
-                        <p>Acharya Lokesh invited Clinton for Jaina Convention 2017 to be held in New Jersy from 30 June to 4 July in which around 7000 representatives from 70 Jain Centres in America and from India, Canada, Britain also from other parts of the world willparticipate.</p>
-                    </div>
 
                     <div class="box" ><!-- flex item -->
                         <img src="assets/img/uddhav.jpg" alt="" />
-                        <p><h3> 4)UDDHAV THACKERAY VISITS ACHARYA SHRI VIJAY PREMSURISHWARJI</h3></p>
+                        <p><h3> 3)UDDHAV THACKERAY VISITS ACHARYA SHRI VIJAY PREMSURISHWARJI</h3></p>
                     </div>
 
                     <div class="news_detail">
@@ -207,7 +196,7 @@
 
                     <div class="box" ><!-- flex item -->
                         <img src="assets/img/japan.jpg" alt="" />
-                        <p><h3> 5) JAINISM REACHES JAPAN</h3></p>
+                        <p><h3> 4) JAINISM REACHES JAPAN</h3></p>
                     </div>
                     <div class="news_detail">
                         <p>21st September 2016: Ahmedabad : When a group of Japanese nationals visited Gachchanath Manoharpritisurishwar Maharaj at Paldi, other devotees were left stunned.The visitors were wearing Indian traditional clothes with forehead tilak. They also recited the Navkarmantra. However, for the devotees from Japan, it was nothing out of the ordinary, as they have adopted a number of Jain practices.</p>
@@ -226,23 +215,39 @@
                     <h2 class="heading">New Members</h2>
                     <hr class="star-light">
                 </div>
-                <div ng-cloak ng-repeat="member in commmitteeMembers | filter: searchText">
+                <div ng-cloak ng-repeat="member in newMembers | filter: searchText">
                     <div class="clearfix" ng-if="$index % 4 == 0"></div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <a ng-href="https://jhipster.github.io/modules/marketplace/#/details/{(module.package.name)}"
+                        <a ng-href=""
                            title="{(module.package.description)}">
                             <div class="card dark module summary-inline">
                                 <div class="card-body">
                                     <i class="icon fa fa-cube fa-3x"></i>
                                     <div class="content">
-                                        <div class="title fontSmall">{{member.name}}</div>
-                                        <div class="sub-title"><span class="fa fa-user"></span>  &nbsp; <span class="fa fa-mobile"></span> &nbsp; {{member.mobile}}</div>
+                                        <div class="title fontSmall">{{member.firstName}} {{member.lastName}}</div>
+                                        <div class="sub-title"><span class="fa fa-envelope"></span> {{member.emailId}}  &nbsp; <span class="fa fa-mobile"></span> &nbsp; {{member.mobileNumber}}</div>
                                     </div>
                                     <div class="clear-both"></div>
                                 </div>
                             </div>
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section" id="section-5" style="padding-top: 60px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="btn-toolbar ng-scope">
+                        <p class="pull-left lead">Calendar View Options <i class="fa fa-hand-o-right" aria-hidden="true"></i></p>
+                            <button class="btn btn-primary pull-right" ng-click="changeView('agendaDay', 'myCalendar')">Agenda Day</button>
+                            <button class="btn btn-primary pull-right" ng-click="changeView('agendaWeek', 'myCalendar')">Agenda Week</button>
+                            <button class="btn btn-primary pull-right" ng-click="changeView('month', 'myCalendar')">Month</button>
+                    </div>
+                    <div ui-calendar="uiConfig.calendar" calendar="myCalendar" ng-model="eventSources"></div>
                 </div>
             </div>
         </div>

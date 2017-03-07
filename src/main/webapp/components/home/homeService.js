@@ -10,7 +10,7 @@
                 cache: false
             });
         }
-        
+
         function getStateMaster() {
             return $http({
                 method: 'GET',
@@ -19,10 +19,19 @@
             })
         }
 
+        function getDashboardData() {
+            return $http({
+                method: 'GET',
+                url: baseURL+'/rest/api/getDashboardData',
+                cache: false
+            })
+        }
+
         // Return the factory itself with getter and setter functions.
         return {
             getCommitteeMembers: getCommitteeMembers,
-            getStateMaster: getStateMaster
+            getStateMaster: getStateMaster,
+            getDashboardData: getDashboardData
         };
     }
 

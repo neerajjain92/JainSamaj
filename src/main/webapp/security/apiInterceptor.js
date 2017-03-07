@@ -1,5 +1,5 @@
 angular.module('myApp').
-factory('authenticationInterceptor',['$q','$rootScope','$location',function($q,$rootScope,$location){
+factory('authenticationInterceptor',['$q','$rootScope','$location','$sessionStorage','$cookies',function($q,$rootScope,$location,$sessionStorage,$cookies){
     $rootScope.pendingRequests = 0;
 
     return {
@@ -19,18 +19,9 @@ factory('authenticationInterceptor',['$q','$rootScope','$location',function($q,$
         },
 
         'responseError': function(rejection) {
-            switch(rejection.status){
-                case 403:
-                    $location.path("/home");
-                    break;
-                case 500:
-                    $location.path("/home");
-                    break;
-                case 404:
-                    $location.path("/home");
-                    break;
-
-            }
+            $sessionStorage.$reset();
+            $cookies.remove("AuthenticationKey");
+            $location.path("/home");
             return $q.reject(rejection);
         }
     }

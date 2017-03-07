@@ -34,7 +34,7 @@ angular.module('myApp')
                     $rootScope.showLoader = false;
                     notify({
                         message: response.error,
-                        templateUrl: '/shared/notification/notification-error.tmpl.html',
+                        templateUrl: 'shared/notification/notification-error.tmpl.html',
                         position: 'center',
                     });
                     return false;
@@ -43,7 +43,7 @@ angular.module('myApp')
                     $sessionStorage.userProfile = response.userProfile;
                     notify({
                         message: 'Welcome '+response.userProfile.users.firstName+', You logged In Successfully !!',
-                        templateUrl: '/shared/notification/notification-success.tmpl.html',
+                        templateUrl: 'shared/notification/notification-success.tmpl.html',
                         position: 'center',
                     });
                     $state.go('addMember');
@@ -64,7 +64,7 @@ angular.module('myApp')
                     $rootScope.showLoader = false;
                     notify({
                         message: response.error,
-                        templateUrl: '/shared/notification/notification-error.tmpl.html',
+                        templateUrl: 'shared/notification/notification-error.tmpl.html',
                         position: 'center'
                     });
                     return false;
@@ -73,7 +73,7 @@ angular.module('myApp')
                     $sessionStorage.userProfile = response;
                     notify({
                         message: response.note,
-                        templateUrl: '/shared/notification/notification-success.tmpl.html',
+                        templateUrl: 'shared/notification/notification-success.tmpl.html',
                         position: 'center',
                     });
                 }
@@ -102,7 +102,7 @@ angular.module('myApp')
                         $rootScope.showLoader = false;
                         notify({
                             message: response.error,
-                            templateUrl: '/shared/notification/notification-error.tmpl.html',
+                            templateUrl: 'shared/notification/notification-error.tmpl.html',
                             position: 'center'
                         });
                         return false;
@@ -110,7 +110,7 @@ angular.module('myApp')
                         $rootScope.showLoader = false;
                         notify({
                             message: "Password Sent to Registered Email Id, Please check and login",
-                            templateUrl: '/shared/notification/notification-success.tmpl.html',
+                            templateUrl: 'shared/notification/notification-success.tmpl.html',
                             position: 'center'
                         });
                     }

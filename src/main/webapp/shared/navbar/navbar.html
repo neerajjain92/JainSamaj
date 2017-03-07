@@ -1,8 +1,11 @@
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-top">
-    <div class="container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-top" id="nav">
+    <div class="container-fluid" style="padding-left: 0px;">
         <div class="navbar-header">
-            <a href="#facts" class="navbar-brand nav-header-logo" du-smooth-scroll du-scrollspy><img src="assets/img/swastika.png"></a>
+            <!--<a href="#facts" ng-class="{ active: isActive('/facts') }" class="navbar-brand nav-header-logo" du-smooth-scroll du-scrollspy><img src="assets/img/swastika.png"></a>-->
             <ul class="nav navbar-nav">
+                <li class="page-scroll" ng-if="!isUserLoggedIn">
+                    <a href="#facts" du-smooth-scroll du-scrollspy><img src="assets/img/swastika.png">&nbsp;Home</a>
+                </li>
                 <li class="page-scroll" ng-if="!isUserLoggedIn">
                     <a href="#section-1" du-smooth-scroll du-scrollspy>Gallery</a>
                 </li>
@@ -22,13 +25,16 @@
                     <a href="#section-4" du-smooth-scroll du-scrollspy>New Members</a>
                 </li>
                 <li class="page-scroll" ng-if="!isUserLoggedIn">
+                    <a href="#section-5" du-smooth-scroll du-scrollspy>Calendar</a>
+                </li>
+                <li class="page-scroll" ng-if="!isUserLoggedIn">
                     <a href="#footer" du-smooth-scroll du-scrollspy>Contact Us</a>
                 </li>
             </ul>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li ng-if="!isUserLoggedIn"><a href="#" ui-sref="login({selectedTab: 2})"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li ng-if="!isUserLoggedIn"><a href="#" ui-sref="login({selectedTab: 1})"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li ng-if="!isUserLoggedIn" ><a href="#" ui-sref="login({selectedTab: 2})"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li ng-if="!isUserLoggedIn" ><a href="#" ui-sref="login({selectedTab: 1})"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <li style="margin-top: 11px" ng-if="isUserLoggedIn">
                 <p>
                     <small>

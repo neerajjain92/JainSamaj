@@ -13,7 +13,8 @@ angular.module('myApp', [
     'md.data.table',
     'ngCookies',
     'ngMessages',
-    'ngImgCrop'
+    'ngImgCrop',
+    'ui.calendar'
 ]).
 config(function ($stateProvider, $urlRouterProvider, $compileProvider, $httpProvider) {
 
@@ -93,4 +94,5 @@ config(function ($stateProvider, $urlRouterProvider, $compileProvider, $httpProv
     controller('myAppController', function ($scope) {
 
 });
-    var baseURL ='http://localhost:3000/jss';
+    //var baseURL ='http://localhost:3000/jss';
+    var baseURL = 'http://www.rnja.org/JainSamajServer';

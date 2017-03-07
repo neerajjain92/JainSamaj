@@ -38,7 +38,15 @@
         function deleteMember(memberId) {
             return $http({
                 method: 'DELETE',
-                url: baseURL+'/rest/member/deleteMember/'+memberId,
+                url: baseURL+'/rest/member/deleteMember/'+memberId
+            });
+        }
+
+        function getHeadOfFamily() {
+            return $http({
+                method: 'GET',
+                url: baseURL+'/rest/member/getHeadOfFamily/',
+                cache: false
             });
         }
 
@@ -48,7 +56,8 @@
             addMemberDetails: addMemberDetails,
             getDeserts: getDeserts,
             getMembers: getMembers,
-            deleteMember: deleteMember
+            deleteMember: deleteMember,
+            getHeadOfFamily: getHeadOfFamily
         };
     }
 

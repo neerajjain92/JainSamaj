@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('navBarController', ['$rootScope','$scope','$sessionStorage','$state','LoginService','$cookies','$mdDialog','notify', function ($rootScope,$scope, $sessionStorage, $state, LoginService, $cookies, $mdDialog, notify) {
+    .controller('navBarController', ['$rootScope','$scope','$sessionStorage','$state','LoginService','$cookies','$mdDialog','notify','$location', function ($rootScope,$scope, $sessionStorage, $state, LoginService, $cookies, $mdDialog, notify, $location) {
 
         $rootScope.isUserLoggedIn = ($sessionStorage.userProfile != null);
 
@@ -15,6 +15,11 @@ angular.module('myApp')
             $cookies.remove("AuthenticationKey");
             LoginService.doLogout();
             $state.go('home');
+        };
+
+        $scope.isActive = function (viewLocation) {
+            console.log(viewLocation);
+            return viewLocation == $location.path();
         };
 
         $scope.uploadProfilePicture = function (ev) {
@@ -68,7 +73,7 @@ angular.module('myApp')
             $scope.uploadProfilePicture = function () {
                 notify({
                     message: "Feature Under Development, We'll be up soon :)",
-                    templateUrl: '/shared/notification/notification-error.tmpl.html',
+                    templateUrl: 'shared/notification/notification-error.tmpl.html',
                     position: 'center'
                 });
             };
@@ -102,7 +107,7 @@ angular.module('myApp')
                         $rootScope.showLoader = false;
                         notify({
                             message: response.error,
-                            templateUrl: '/shared/notification/notification-error.tmpl.html',
+                            templateUrl: 'shared/notification/notification-error.tmpl.html',
                             position: 'center'
                         });
                         return false;
@@ -111,7 +116,7 @@ angular.module('myApp')
                         $mdDialog.hide();
                         notify({
                             message: response.message,
-                            templateUrl: '/shared/notification/notification-success.tmpl.html',
+                            templateUrl: 'shared/notification/notification-success.tmpl.html',
                             position: 'center'
                         });
                     }

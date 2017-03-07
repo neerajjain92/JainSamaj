@@ -1,10 +1,43 @@
 angular.module('myApp')
     .controller('addMemberController', ['$scope','$rootScope','$http','$state', 'MemberService', 'LoginService', '$sessionStorage','notify', function ($scope,$rootScope,$http, $state, MemberService,LoginService , $sessionStorage, notify) {
 
-        MemberService.getMembers('test').then(function (response) {
+        MemberService.getHeadOfFamily().then(function (response) {
+            response = response.data;
+            responseStatus = response.status;
+
+            if(responseStatus == "fail"){
+                notify.closeAll();
+                notify({
+                    message: 'Please Register yourself as a member to get details pre-populated for your family members',
+                    templateUrl: 'shared/notification/notification-success.tmpl.html',
+                    position: 'center',
+                });
+            }else{
+                headOfFamily = response.headOfFamily;
+                $scope.member.residentialAddress = headOfFamily.residentialAddress;
+                $scope.member.officeAddress = headOfFamily.officeAddress;
+                $scope.member.state = headOfFamily.state;
+                $scope.member.city = headOfFamily.city;
+                $scope.member.pinCode = headOfFamily.pinCode;
+                $scope.member.mobileNumber = headOfFamily.mobileNumber;
+            }
         });
 
-        $scope.relationMst = ["Self","Father","Mother","Wife","Son","Daughter","Friend","Brother-In-Law","Sister-In-Law","Son-In-Law","D/O","Grand Daughter","Son's wife","Daughter in law","Grand Son"];
+        $scope.relationMst = ["Self",
+                              "Father",
+                              "Mother",
+                              "Sister",
+                              "Brother",
+                              "Wife",
+                              "Son",
+                              "Daughter",
+                              "Friend",
+                              "Brother-In-Law",
+                              "Sister-In-Law",
+                              "Son-In-Law",
+                              "Daughter In Law",
+                              "Grand Daughter",
+                              "Grand Son"];
 
         $scope.member = {
             firstName:null,
@@ -41,7 +74,7 @@ angular.module('myApp')
                 if(requestStatus === "fail"){
                     notify({
                         message: response.error,
-                        templateUrl: '/shared/notification/notification-error.tmpl.html',
+                        templateUrl: 'shared/notification/notification-error.tmpl.html',
                         position: 'center',
                     });
                     return false;
@@ -57,12 +90,9 @@ angular.module('myApp')
         };
 
         MemberService.getStateMaster().then(function (response) {
-                console.log(response);
                 var states = response.data.states;
                 $scope.states = states;
         });
-
-        console.log($sessionStorage.userProfile);
     }]);
 
 angular.module('myApp')
@@ -72,8 +102,6 @@ angular.module('myApp')
         });
 
         var userProfile = $sessionStorage.userProfile;
-
-        console.log("Inside List");
 
         $scope.selected = [];
 
@@ -91,7 +119,6 @@ angular.module('myApp')
         $scope.loadStuff = function () {
             $scope.promise = $timeout(function () {
                 MemberService.getMembers(userProfile.users.userName).then(function (response) {
-                    console.log(response);
                     $scope.members = response.data.members;
                 });
             },500);
@@ -111,7 +138,6 @@ angular.module('myApp')
         };
 
         MemberService.getMembers(userProfile.users.userName).then(function (response) {
-            console.log(response);
             $scope.members = response.data.members;
         });
 
@@ -128,19 +154,18 @@ angular.module('myApp')
             $mdDialog.show(confirm).then(function() {
                 MemberService.deleteMember(member.memberId).then(function (response) {
                     response = response.data;
-                    console.log(response);
                     var requestStatus = response.status;
                     if(requestStatus === "fail"){
                         notify({
                             message: response.error,
-                            templateUrl: '/shared/notification/notification-error.tmpl.html',
+                            templateUrl: 'shared/notification/notification-error.tmpl.html',
                             position: 'center',
                         });
                         return false;
                     }else {
                         notify({
                             message: response.message,
-                            templateUrl: '/shared/notification/notification-success.tmpl.html',
+                            templateUrl: 'shared/notification/notification-success.tmpl.html',
                             position: 'center',
                         });
                         $scope.loadStuff();
@@ -168,8 +193,6 @@ angular.module('myApp')
         };
 
         function ViewMemberDialogController($scope, $mdDialog) {
-
-            console.log($scope.selected);
             $scope.selected = null;
 
             $scope.sendEmail = function(email, subject, body) {

@@ -94,5 +94,5 @@ config(function ($stateProvider, $urlRouterProvider, $compileProvider, $httpProv
     controller('myAppController', function ($scope) {
 
 });
-    //var baseURL ='http://localhost:3000/jss';
-    var baseURL = 'http://www.rnja.org/JainSamajServer';
+    var baseURL ='http://localhost:3000/jss';
+

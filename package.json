@@ -7,7 +7,7 @@
     "bower": "^1.7.7",
     "browser-sync": "^2.18.7",
     "gulp": "^3.9.1",
-    "http-proxy-middleware": "^0.17.3",
+    "http-proxy-middleware": "^0.18.0",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
@@ -36,6 +36,6 @@
     "angular-ui-router": "^0.4.2",
     "express": "^4.14.1",
     "gulp-shell": "^0.5.2",
-    "http-proxy-middleware": "^0.17.3"
+    "http-proxy-middleware": "^0.18.0"
   }
 }

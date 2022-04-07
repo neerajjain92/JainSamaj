@@ -35,7 +35,7 @@
   "dependencies": {
     "angular-ui-router": "^0.4.2",
     "express": "^4.14.1",
-    "gulp-shell": "^0.5.2",
+    "gulp-shell": "^0.7.1",
     "http-proxy-middleware": "^0.17.3"
   }
 }
